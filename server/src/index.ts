@@ -24,7 +24,7 @@ if (IS_PROD) {
   // cwd = /app/server/ (because start script does "cd server && ...")
   const clientDist = path.resolve(process.cwd(), "../client/dist");
   app.use(express.static(clientDist));
-  app.get("*", (_req, res) => {
+  app.get("/{*splat}", (_req, res) => {
     res.sendFile(path.join(clientDist, "index.html"));
   });
 }
