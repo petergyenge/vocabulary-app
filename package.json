@@ -8,6 +8,9 @@
     "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server && cd server && npx prisma generate && npx tsc",
     "start": "cd server && npx prisma migrate deploy && node dist/scripts/importVocabulary.js && node dist/src/index.js"
   },
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
