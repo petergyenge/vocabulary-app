@@ -3,6 +3,10 @@ node_modules/
 server/node_modules/
 client/node_modules/
 
+# Lock files - generated per-platform, let Railway resolve on Linux
+client/package-lock.json
+server/package-lock.json
+
 # Build outputs
 server/dist/
 client/dist/
