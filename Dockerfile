@@ -14,8 +14,11 @@ RUN npm install
 # Build client + server
 RUN npm run build
 
+# Seed DB during build (so xlsx is available and DB ships pre-loaded)
+RUN cd server && npx prisma migrate deploy && node dist/scripts/importVocabulary.js
+
 # Expose port
 EXPOSE 3001
 
-# Start: run migrations, import words if needed, start server
+# Start server (migration only, import already done)
 CMD ["npm", "run", "start"]

@@ -15,7 +15,8 @@ async function main() {
     return;
   }
 
-  const xlsxPath = path.resolve(__dirname, "../../vocabulary.xlsx");
+  // process.cwd() = server/ in both dev (ts-node) and prod (cd server && node dist/...)
+  const xlsxPath = path.resolve(process.cwd(), "../vocabulary.xlsx");
   console.log(`Reading: ${xlsxPath}`);
 
   const workbook = new ExcelJS.Workbook();
