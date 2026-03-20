@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Word {
+  id           Int       @id @default(autoincrement())
+  english      String    @unique
+  hungarian    String
+  priority     Int       @default(10)
+  correctCount Int       @default(0)
+  wrongCount   Int       @default(0)
+  lastSeenAt   DateTime?
+
+  @@index([priority])
+}
